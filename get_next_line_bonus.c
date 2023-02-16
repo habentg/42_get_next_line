@@ -6,7 +6,7 @@
 /*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 19:19:40 by hatesfam          #+#    #+#             */
-/*   Updated: 2023/02/14 21:46:23 by hatesfam         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:52:44 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,10 @@ char	*read_buffer(int fd, char *buff)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[256];
+	static char	*buffer[1024];
 	char		*line;
 
-	if (fd < 0 || fd > 256 || BUFFER_SIZE <= 0
+	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0
 		|| BUFFER_SIZE > 2147483647 || read(fd, 0, 0) < 0)
 		return (NULL);
 	buffer[fd] = read_buffer(fd, buffer[fd]);
